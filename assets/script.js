@@ -1,155 +1,49 @@
-//list of the declared variables for the password
-let specialCharacters = [
-  "~",
-  "`",
-  "!",
-  "@",
-  "#",
-  "$",
-  "%",
-  "^",
-  "&",
-  "*",
-  "(",
-  ")",
-  "-",
-  "_",
-  "+",
-  "=",
-  "{",
-  "}",
-  "[",
-  "]",
-  "|",
-  "/",
-  ":",
-  ";",
-  "<",
-  ">",
-  ",",
-  ".",
-  "?",
-];
+//Create lets for the questions..?
 
-let numberCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+//vThis is how the quiz will move from one question to the next!v
 
-let lowercaseCharacters = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-  "z",
-];
+//listOfQues = {
+//     firstQues: 1,
+//     secondQues: 2,
+//     thirdQues: 3,
+//     fourthQues: 4,
+//     fifthQues: 5
+// }
+// console.log(listOfQues.secondExample)
 
-let uppercaseCharacters = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
-];
+//Create an if statement that states 'when questions are done, move to highscore html
 
-//password generation function
-function generatePassword() {
-  let characterList = [];
+//Create an if statement that states 'when timer is done, move to highscore html
 
-  //list of confirms for the user to check in creating the password
-  let passwordLength = prompt(`How many characters in your password, boss?`);
+var timeEl = document.querySelector(".time");
 
-  while (passwordLength < 8 || passwordLength > 128) {
-    passwordLength = prompt("Nah, stick to 8-128!");
-  }
+// Selects element by id
+var mainEl = document.getElementById("main");
 
-  let specialCharactersConfirm = confirm(`Do you want special characters?`);
-  let numberCharactersConfirm = confirm(`Do you want numbers?`);
-  let uppercaseCharactersConfirm = confirm(`Do you want uppercase letters?`);
-  let lowercaseCharactersConfirm = confirm(`Do you want lowercase letters?`);
-  let password = [];
+var secondsLeft = 10;
 
-  //if statments for each character type
-  if (specialCharactersConfirm === true) {
-    password.push(getRandom(specialCharacters));
-    characterList = characterList.concat(specialCharacters);
-  }
+function setTime() {
+  // Sets interval in variable
+  var timerInterval = setInterval(function () {
+    secondsLeft--;
+    timeEl.textContent = secondsLeft + " seconds left till its over!";
 
-  if (numberCharactersConfirm === true) {
-    password.push(getRandom(numberCharacters));
-    characterList = characterList.concat(numberCharacters);
-  }
-
-  if (uppercaseCharactersConfirm === true) {
-    password.push(getRandom(uppercaseCharacters));
-    characterList = characterList.concat(uppercaseCharacters);
-  }
-
-  if (lowercaseCharactersConfirm === true) {
-    password.push(getRandom(lowercaseCharacters));
-    characterList = characterList.concat(lowercaseCharacters);
-  }
-
-  let remainingPasswordLength = passwordLength - password.length;
-  for (let i = 0; i < remainingPasswordLength; i++) {
-    password.push(getRandom(characterList));
-  }
-
-  return password.join("");
+    if (secondsLeft === 0) {
+      // Stops execution of action at set interval
+      clearInterval(timerInterval);
+      // Calls function to create and append image
+      sendMessage();
+    }
+  }, 1000);
 }
 
-function getRandom(arr) {
-  let index = Math.floor(Math.random() * arr.length);
-  return arr[index];
+// Function to create and append image
+function sendMessage() {
+  timeEl.textContent = " ";
+  var imgEl = document.createElement("img");
+  //picture taken from my bitmoji
+  imgEl.setAttribute("src", "./assets/images/hotdiggity.png");
+  mainEl.appendChild(imgEl);
 }
 
-let generateBtn = document.querySelector("#generate");
-
-//
-function writePassword() {
-  let password = generatePassword();
-  let passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-}
-
-generateBtn.addEventListener("click", writePassword);
+setTime();

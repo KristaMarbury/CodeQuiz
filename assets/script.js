@@ -1,6 +1,55 @@
-//Create lets for the questions..?
+let startButton = document.getElementById("start");
+let saveScore = document.getElementById("save-score");
 
-//vThis is how the quiz will move from one question to the next!v
+// functions //////////////////////////////////
+// start quiz - init
+function startQuiz() {
+  // start timer
+  // find dom element to show the question
+  getQuestion();
+}
+
+// get the next question
+function getQuestion() {
+  // get the current question
+  // show the question
+  // loop show the choices (buttons)
+  // add event listener for the each button created
+  answerCheck();
+}
+
+// check user selection
+function answerCheck() {
+  // check the user selection against correct answer
+  // incorrect remove seconds
+  // set score
+  // get next question
+  getQuestion();
+  // if questions.length
+  endGame();
+}
+
+// end game
+function endGame() {
+  // set their score
+  // show end screen
+  // clear out timer
+}
+
+// save high score
+function saveHighScore() {
+  // prompt for initials
+  // save score to localstorage
+}
+
+// event listeners //////////////////////////////////
+// start button click
+startBtn.addEventListener("click", startQuiz);
+
+// save high score
+saveScore.addEventListener("click", saveHighScore);
+
+//v This is how the quiz will move from one question to the next! v
 
 //listOfQues = {
 //     firstQues: 1,
@@ -14,36 +63,3 @@
 //Create an if statement that states 'when questions are done, move to highscore html
 
 //Create an if statement that states 'when timer is done, move to highscore html
-
-var timeEl = document.querySelector(".time");
-
-// Selects element by id
-var mainEl = document.getElementById("main");
-
-var secondsLeft = 10;
-
-function setTime() {
-  // Sets interval in variable
-  var timerInterval = setInterval(function () {
-    secondsLeft--;
-    timeEl.textContent = secondsLeft + " seconds left till its over!";
-
-    if (secondsLeft === 0) {
-      // Stops execution of action at set interval
-      clearInterval(timerInterval);
-      // Calls function to create and append image
-      sendMessage();
-    }
-  }, 1000);
-}
-
-// Function to create and append image
-function sendMessage() {
-  timeEl.textContent = " ";
-  var imgEl = document.createElement("img");
-  //picture taken from my bitmoji
-  imgEl.setAttribute("src", "./assets/images/hotdiggity.png");
-  mainEl.appendChild(imgEl);
-}
-
-setTime();

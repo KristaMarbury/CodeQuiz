@@ -1,3 +1,6 @@
+let revealQuiz = document.querySelector("#start");
+revealQuiz.style.display = "block";
+
 let startButton = document.getElementById("start");
 let saveScore = document.getElementById("save-score");
 
@@ -5,6 +8,44 @@ let saveScore = document.getElementById("save-score");
 // start quiz - init
 function startQuiz() {
   // start timer
+
+  //Create an if statement that states 'when timer is done, move to highscore html
+
+  //v Timer Code v
+  // let timeEl = document.querySelector(".time");
+
+  // // Selects element by id
+  // let mainEl = document.getElementById("main");
+
+  // let secondsLeft = 10;
+
+  // function setTime() {
+  //   // Sets interval in variable
+  //   let timerInterval = setInterval(function () {
+  //     secondsLeft--;
+  //     timeEl.textContent = secondsLeft + " seconds left till its over!";
+
+  //     if (secondsLeft === 0) {
+  //       // Stops execution of action at set interval
+  //       clearInterval(timerInterval);
+  //       // Calls function to create and append image
+  //       sendMessage();
+  //     }
+  //   }, 1000);
+  // }
+
+  //v Function to create and append image v
+
+  // function sendMessage() {
+  //   timeEl.textContent = " ";
+  //   let imgEl = document.createElement("img");
+  //   //picture taken from my bitmoji
+  //   imgEl.setAttribute("src", "./assets/images/hotdiggity.png");
+  //   mainEl.appendChild(imgEl);
+  // }
+
+  // setTime();
+
   // find dom element to show the question
   getQuestion();
 }
@@ -44,22 +85,7 @@ function saveHighScore() {
 
 // event listeners //////////////////////////////////
 // start button click
-startBtn.addEventListener("click", startQuiz);
+startButton.addEventListener("click", startQuiz);
 
 // save high score
 saveScore.addEventListener("click", saveHighScore);
-
-//v This is how the quiz will move from one question to the next! v
-
-//listOfQues = {
-//     firstQues: 1,
-//     secondQues: 2,
-//     thirdQues: 3,
-//     fourthQues: 4,
-//     fifthQues: 5
-// }
-// console.log(listOfQues.secondExample)
-
-//Create an if statement that states 'when questions are done, move to highscore html
-
-//Create an if statement that states 'when timer is done, move to highscore html

@@ -8,6 +8,8 @@ let timeEl = document.querySelector("#time");
 let secondsLeft = 100;
 let mainEl = document.querySelector("#main");
 let timerInterval;
+let players = document.getElementById("saved-name");
+let grade = document.getElementById("saved-score");
 
 // functions //////////////////////////////////
 

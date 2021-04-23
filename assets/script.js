@@ -1,11 +1,28 @@
-let revealQuiz = document.querySelector("#start");
-revealQuiz.style.display = "block";
+//start button reveals quiz
+// let revealQuiz = document.querySelector("#start");
+// revealQuiz.style.display = "block";
+// let answerButton = document.getElementById("");
 
-let startButton = document.getElementById("start");
-let saveScore = document.getElementById("save-score");
+//variables
+let startButton = document.querySelector("#start");
+let saveScore = document.querySelector("#save-score");
+let questionTitle = document.querySelector("#question-title");
+let optionsDiv = document.querySelector("#options");
+
+let questionIndex = 0;
 
 // functions //////////////////////////////////
 // start quiz - init
+
+//v function to check the answer v
+// function checkAnswer() {
+//   //if the answer is true, then move to the next question
+//   let answer = this.textContent;
+//   alert(answer);
+// }
+
+//event listner for the question answer
+
 function startQuiz() {
   // start timer
 
@@ -53,26 +70,40 @@ function startQuiz() {
 // get the next question
 function getQuestion() {
   // get the current question
+  let currentQuestion = questions[questionIndex];
   // show the question
+  questionTitle.textContent = currentQuestion.text;
+  //loop show the choices
+  currentQuestion.options.forEach((option) => {
+    optionsButton.textContent = option;
+    optionsButton.setAttribute("value", option);
+    optionsButton.onclick = answerCheck;
+    let optionsButton = document.createElement("button");
+    optionsDiv.appendChild(optionsButton);
+  });
   // loop show the choices (buttons)
   // add event listener for the each button created
-  answerCheck();
 }
 
 // check user selection
 function answerCheck() {
   // check the user selection against correct answer
-  // incorrect remove seconds
-  // set score
-  // get next question
-  getQuestion();
-  // if questions.length
-  endGame();
+  if (optionsButton === questions[questionsIndex].answer) {
+    alert("correct");
+    questionsIndex++;
+    if (questionsIndex < questions.length) {
+      getQuestion();
+    } else {
+      endGame();
+    }
+  } //else{}
 }
 
 // end game
 function endGame() {
   // set their score
+  do keepScore;
+  while (option);
   // show end screen
   // clear out timer
 }
@@ -88,4 +119,5 @@ function saveHighScore() {
 startButton.addEventListener("click", startQuiz);
 
 // save high score
-saveScore.addEventListener("click", saveHighScore);
+// saveScore.addEventListener("click", saveHighScore);
+// answerButton.addEventListener("click", checkAnswer);

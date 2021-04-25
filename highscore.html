@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Quiz!</title>
     <link rel="stylesheet" href="./assets/style.css" />
+    <title>Code Quiz!</title>
 </head>
 
 <main>
@@ -14,16 +14,24 @@
         <header>
             <h1>~Witness the Highscores~</h1>
             <div id="scores" class="card">
-                <h2>Last Saved Highscores</h2>
-                <p>Player's Initials: <span id="saved-name"></span></p>
-                <p>Score: <span id="saved-score"></span></p>
+                <ul>
+                    <li id="highScore"></li>
+
+                    <h2>Last Saved Highscores</h2>
+                    <li>
+                        <p><span id="saved-name"></span>:<span id="saved-score"></span></p>
+                    </li>
+
+
+                </ul>
             </div>
+
         </header>
 
         <button><a href="index.html"> Back to the start </a> </button>
     </section>
 
 </main>
-<script src="./assets/higscore.js"></script>
+<script src="./assets/highscore.js"></script>
 
 </html>

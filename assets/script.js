@@ -1,4 +1,4 @@
-//variables
+//global variables
 let startButton = document.querySelector("#start");
 let saveScore = document.querySelector("#save-score");
 let questionTitle = document.querySelector("#question-title");
@@ -8,8 +8,8 @@ let timeEl = document.querySelector("#time");
 let secondsLeft = 100;
 let mainEl = document.querySelector("#main");
 let timerInterval;
-let players = document.getElementById("saved-name");
-let grade = document.getElementById("saved-score");
+let questionDiv = document.querySelector("#question");
+//let oldHighscoreTitle
 
 // functions //////////////////////////////////
 
@@ -31,7 +31,7 @@ function setTime() {
       // Calls function to create and append image
       sendMessage();
     }
-  }, 1000);
+  }, 100);
 }
 
 // get the next question
@@ -63,12 +63,9 @@ function answerCheck() {
     }
   } else {
     alert("incorrect!");
+    secondsLeft -= 10;
   }
 }
-// loop show the choices (buttons)
-// add event listener for the each button created
-
-// check user selection
 
 // end game
 function endGame() {
@@ -78,6 +75,9 @@ function endGame() {
   //picture taken from my bitmoji
   imgEl.setAttribute("src", "./assets/images/hotdiggity.png");
   mainEl.appendChild(imgEl);
+
+  //replace questions with the score
+  questionDiv.textContent = `Your Score Is...${secondsLeft}`;
   // show end screen
   saveHighScore();
 }
@@ -94,17 +94,16 @@ function saveHighScore() {
       score: secondsLeft,
       initials: isSave,
     };
+    grade = newScore.score;
+    players = newScore.initials;
     // save to localstorage
     highscores.push(newScore);
     window.localStorage.setItem("highscores", JSON.stringify(highscores));
   }
-  // save score to localstorage
+  //go straight to the highscore page
 }
 
 // event listeners //////////////////////////////////
-// start button click
 startButton.addEventListener("click", startQuiz);
 
 // save high score
-// saveScore.addEventListener("click", saveHighScore);
-// answerButton.addEventListener("click", checkAnswer);

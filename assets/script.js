@@ -31,7 +31,7 @@ function setTime() {
       // Calls function to create and append image
       sendMessage();
     }
-  }, 100);
+  }, 1000);
 }
 
 // get the next question
@@ -99,8 +99,17 @@ function saveHighScore() {
     // save to localstorage
     highscores.push(newScore);
     window.localStorage.setItem("highscores", JSON.stringify(highscores));
+    //trying to create list item for each object in the array, then append to the highScore class element
+    // let highScores = JSON.parse(localStorage.getItem("highScore"));
+    // //sort here by specific key
+    // highScores.sort((a, b) => b.score - a.score);
+    // for (i = 0; i < highScores.length; i++) {
+    //   let scoreLi = document.createElement("li");
+    //   scoreLi.textContent =
+    //     `${highScores[i].name}..................` + `${highScores[i].score}`;
+    //   oldHighScoresTitle.appendChild(scoreLi);
+    // }
   }
-  //go straight to the highscore page
 }
 
 // event listeners //////////////////////////////////

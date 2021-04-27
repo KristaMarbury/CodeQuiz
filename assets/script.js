@@ -55,6 +55,7 @@ function answerCheck() {
   // check the user selection against correct answer
   if (this.value === questions[questionIndex].answer) {
     alert("correct");
+    // document.getElementById("right").style.display = "block";
     questionIndex++;
     if (questionIndex < questions.length) {
       getQuestion();
@@ -62,7 +63,8 @@ function answerCheck() {
       endGame();
     }
   } else {
-    alert("incorrect!");
+    alert("incorrect");
+    // document.getElementById("wrong").style.display = "block";
     secondsLeft -= 10;
   }
 }
@@ -99,16 +101,6 @@ function saveHighScore() {
     // save to localstorage
     highscores.push(newScore);
     window.localStorage.setItem("highscores", JSON.stringify(highscores));
-    //trying to create list item for each object in the array, then append to the highScore class element
-    // let highScores = JSON.parse(localStorage.getItem("highScore"));
-    // //sort here by specific key
-    // highScores.sort((a, b) => b.score - a.score);
-    // for (i = 0; i < highScores.length; i++) {
-    //   let scoreLi = document.createElement("li");
-    //   scoreLi.textContent =
-    //     `${highScores[i].name}..................` + `${highScores[i].score}`;
-    //   oldHighScoresTitle.appendChild(scoreLi);
-    // }
   }
 }
 

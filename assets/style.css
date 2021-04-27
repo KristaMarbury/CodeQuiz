@@ -10,6 +10,14 @@ article {
   font-size: 3rem;
 }
 
+/* #right {
+  display: none;
+}
+
+#wrong {
+  display: none;
+} */
+
 button {
   border: none;
   background-color: hsl(360, 91%, 36%);

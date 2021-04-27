@@ -44,9 +44,19 @@ let questions = [
       "Shin Kicking World Championship",
       "King of the Hill",
       "Running Races",
-      "All of above and more",
+      "All of the above and more",
     ],
-    answer: "All above and more",
+    answer: "All of the above and more",
+  },
+  {
+    text: "The Dakar Rally is...",
+    options: [
+      "Bing-watching race of foreign films",
+      "A race where you carry children from Dakar",
+      "A 3,000 mile land vehicle race",
+      "An eating contest where you sample cuisine from Dakar",
+    ],
+    answer: "A 3,000 mile land vehicle race",
   },
 ];
 
